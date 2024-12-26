@@ -1,3 +1,85 @@
+//  ==================================== HERO PORTRAIT EFFECT ====================================
+function heroPortraitEffect() {
+	const heroSection = document.querySelector('.hero-section');
+	const portrait = document.querySelector('.hero-portrait');
+
+	const mouse = {
+		x: 0,
+		y: 0,
+	};
+	const imgPos = { x: 0, y: 0 };
+	const rotationRange = 20; // Maximum rotation angle in degrees
+
+	window.addEventListener('mousemove', (e) => {
+		mouse.x = e.clientX / 4 - 200;
+		mouse.y = e.clientY / 5 - 70;
+	});
+
+	gsap.ticker.add(() => {
+		imgPos.x += (mouse.x - imgPos.x) * 0.08; // Adjust 0.1 for a smoother or quicker response
+		imgPos.y += (mouse.y - imgPos.y) * 0.08;
+
+		// Calculate rotation based on mouse position
+		const rotate = (
+			(mouse.x / (window.innerWidth / 2)) *
+			rotationRange
+		).toFixed(4); // Normalize x to [-rotationRange, rotationRange]
+
+		// Set image position and rotation
+		gsap.set(portrait, {
+			x: imgPos.x,
+			y: imgPos.y,
+			rotation: rotate,
+		});
+	});
+}
+heroPortraitEffect();
+
+//  ==================================== TEXT APPEAR ON SCROLL EFFECT ====================================
+function textAnime() {
+	gsap.registerPlugin(ScrollTrigger);
+	const textFull = document.querySelector('.text-anime');
+
+	textFull.innerHTML = textFull.textContent
+		.split('')
+		.map((letter) => `<span>${letter}</span>`)
+		.join('');
+
+	const spans = textFull.querySelectorAll('span');
+	console.log(spans);
+
+	gsap
+		.timeline({
+			scrollTrigger: {
+				trigger: textFull,
+				start: 'top 90%',
+				end: 'bottom 60%',
+				scrub: 1,
+				// markers: true,
+			},
+		})
+		.to(spans, {
+			opacity: 1,
+			duration: 0.4,
+			stagger: 0.02,
+			ease: 'power2.out',
+		});
+	// gsap.to(spans, {
+	// 	opacity: 1,
+	// 	duration: 0.4,
+	// 	stagger: 0.02,
+	// 	ease: 'power2.out',
+	// 	scrollTrigger: {
+	// 		trigger: textFull,
+	// 		start: 'top 90%',
+	// 		end: 'bottom 60%',
+	// 		scrub: 1,
+	// 		markers: true,
+	// 	},
+	// });
+}
+
+textAnime();
 // ================================================ LOCOMOTIVE SCROLLTRIGGER ================================================
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -36,37 +118,3 @@
 
 // // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 // ScrollTrigger.refresh();
-
-//  ================================================ HERO PORTRAIT EFFECT ================================================
-
-const heroSection = document.querySelector('.hero-section');
-const portrait = document.querySelector('.hero-portrait');
-
-const mouse = {
-	x: 0,
-	y: 0,
-};
-const imgPos = { x: 0, y: 0 };
-const rotationRange = 20; // Maximum rotation angle in degrees
-
-window.addEventListener('mousemove', (e) => {
-	mouse.x = e.clientX / 4 - 200;
-	mouse.y = e.clientY / 5 - 120;
-});
-
-gsap.ticker.add(() => {
-	imgPos.x += (mouse.x - imgPos.x) * 0.08; // Adjust 0.1 for a smoother or quicker response
-	imgPos.y += (mouse.y - imgPos.y) * 0.08;
-
-	// Calculate rotation based on mouse position
-	const rotate = ((mouse.x / (window.innerWidth / 2)) * rotationRange).toFixed(
-		4
-	); // Normalize x to [-rotationRange, rotationRange]
-
-	// Set image position and rotation
-	gsap.set(portrait, {
-		x: imgPos.x,
-		y: imgPos.y,
-		rotation: rotate, // Apply rotation
-	});
-});

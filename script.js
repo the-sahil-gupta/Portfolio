@@ -1,3 +1,6 @@
+//  ==================================== PROJECTS ====================================
+const projectCard = document.querySelector('.project.card');
+
 //  ==================================== LOADER ====================================
 function loadingAnimation() {
 	const loader = document.querySelector('#loader');

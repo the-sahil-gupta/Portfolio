@@ -133,6 +133,34 @@ body {
 		font-size: 14px;
 	}
 }
+/* =============== LOADER =============== */
+#loader {
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient(to bottom, #fa7100, #f44f01);
+
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	justify-content: end;
+	align-items: end;
+
+	#timer-container {
+		overflow: hidden;
+		height: fit-content;
+		width: fit-content;
+		position: relative;
+
+		#timer {
+			font: 400 600px/0.75 var(--reg-font-family);
+			color: var(--dark-theme-color);
+			letter-spacing: -40px;
+		}
+	}
+}
 
 /* =============== NAV BAR =============== */
 
@@ -194,6 +222,7 @@ body {
 	overflow: hidden;
 }
 .hero-portrait {
+	background: linear-gradient(to bottom, #fa7300, #f34f00);
 	object-fit: cover;
 	border-radius: 12px;
 	height: 524px;

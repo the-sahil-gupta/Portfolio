@@ -1,3 +1,46 @@
+//  ==================================== LOADER ====================================
+function loadingAnimation() {
+	const loader = document.querySelector('#loader');
+	const timer = document.querySelector('#timer');
+	let counter = 0;
+	const tl = gsap.timeline();
+
+	function updateCounter() {
+		if (counter <= 100) {
+			timer.innerHTML = counter++;
+			let delay = 30;
+
+			if (counter < 50) {
+				delay = 30;
+			} else if (counter < 70) {
+				delay = 40;
+			} else if (counter < 90) {
+				delay = 60;
+			} else if (counter < 95) {
+				delay = 100;
+			} else if (counter < 99) {
+				delay = 150;
+			} else if (counter < 100) {
+				delay = 250;
+			} else {
+				delay = 500;
+			}
+			setTimeout(updateCounter, delay);
+		} else {
+			tl.to(timer, {
+				y: '-110%',
+				duration: 1,
+				ease: 'power4.inOut',
+			}).to(loader, {
+				ease: 'power4.inOut',
+				y: '-110%',
+				duration: 1,
+			});
+		}
+	}
+	updateCounter();
+}
+loadingAnimation();
 //  ==================================== HERO PORTRAIT EFFECT ====================================
 function heroPortraitEffect() {
 	const heroSection = document.querySelector('.hero-section');
@@ -46,7 +89,6 @@ function textAnime() {
 		.join('');
 
 	const spans = textFull.querySelectorAll('span');
-	console.log(spans);
 
 	gsap
 		.timeline({
@@ -78,8 +120,8 @@ function textAnime() {
 	// 	},
 	// });
 }
-
 textAnime();
+
 // ================================================ LOCOMOTIVE SCROLLTRIGGER ================================================
 // gsap.registerPlugin(ScrollTrigger);
 

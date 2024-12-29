@@ -2,23 +2,38 @@ const tl = gsap.timeline();
 
 //  ==================================== PROJECTS ====================================
 function projectPin() {
-	const cardCont = document.querySelector('.project-cards-container');
+	const cardContainer = document.querySelector('.project-cards-container');
 	const projectCard = document.querySelectorAll('.project-card');
 	gsap.registerPlugin(ScrollTrigger);
-	projectCard.forEach((card) => {
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: card,
-				start: 'center center',
-				end: 'bottom top',
-				pin: true,
-				markers: true,
-			},
-		});
-		// .to(card, {
-		// 	opacity: 0,
-		// 	scale: 0,
-		// });
+
+	projectCard.forEach((card, i) => {
+		// Apply dynamic z-index
+		card.style.zIndex = projectCard.length + i; // Higher index on top
+
+		if (i < projectCard.length - 1) {
+			// Disappearance effect triggered by the next card
+			gsap.to(card, {
+				scale: 0.8,
+				opacity: 0,
+				scrollTrigger: {
+					trigger: projectCard[i + 1],
+					start: 'top center',
+					end: 'top top',
+					scrub: 1, // Smooth transition
+					// markers: true,
+				},
+			});
+			// Card stack overlapping effect
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: card,
+					start: 'center center',
+					end: 'bottom+=200 top',
+					pin: true,
+					markers: true,
+				},
+			});
+		}
 	});
 }
 projectPin();

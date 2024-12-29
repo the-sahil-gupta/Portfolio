@@ -175,7 +175,7 @@ body {
 	justify-content: end;
 	align-items: end;
 
-	/* display: none; */
+	display: none;
 
 	#timer-container {
 		overflow: hidden;
@@ -335,13 +335,11 @@ body {
 }
 .project-cards-container {
 	padding: 140px;
-	min-height: 200vh;
+	/* min-height: 600vh; */
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
-
-	background-color: #333;
 }
 .project-card {
 	height: 80vh;
@@ -351,7 +349,7 @@ body {
 
 	background-image: var(--card-bg);
 	background-position: center;
-	background-size: 100%;
+	background-size: cover;
 
 	transition: background-size ease 0.4s;
 	.card-title {
@@ -377,4 +375,8 @@ body {
 			}
 		}
 	}
+}
+
+.project-card:nth-child(n) {
+	z-index: calc(100 - var(--index)); Dynamically stack cards
 }

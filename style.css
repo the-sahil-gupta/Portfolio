@@ -175,6 +175,8 @@ body {
 	justify-content: end;
 	align-items: end;
 
+	display: none;
+
 	#timer-container {
 		overflow: hidden;
 		height: fit-content;
@@ -338,6 +340,8 @@ body {
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
+
+	background-color: #333;
 }
 .project-card {
 	height: 80vh;

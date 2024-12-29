@@ -1,12 +1,33 @@
+const tl = gsap.timeline();
+
 //  ==================================== PROJECTS ====================================
-const projectCard = document.querySelector('.project.card');
+function projectPin() {
+	const cardCont = document.querySelector('.project-cards-container');
+	const projectCard = document.querySelectorAll('.project-card');
+	gsap.registerPlugin(ScrollTrigger);
+	projectCard.forEach((card) => {
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: card,
+				start: 'center center',
+				end: 'bottom top',
+				pin: true,
+				markers: true,
+			},
+		});
+		// .to(card, {
+		// 	opacity: 0,
+		// 	scale: 0,
+		// });
+	});
+}
+projectPin();
 
 //  ==================================== LOADER ====================================
 function loadingAnimation() {
 	const loader = document.querySelector('#loader');
 	const timer = document.querySelector('#timer');
 	let counter = 0;
-	const tl = gsap.timeline();
 
 	function updateCounter() {
 		if (counter <= 100) {

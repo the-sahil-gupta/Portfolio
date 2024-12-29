@@ -335,7 +335,6 @@ body {
 }
 .project-cards-container {
 	padding: 140px;
-	/* min-height: 600vh; */
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
@@ -378,5 +377,6 @@ body {
 }
 
 .project-card:nth-child(n) {
-	z-index: calc(100 - var(--index)); Dynamically stack cards
+	/* Dynamically stack cards */
+	z-index: calc(100 - var(--index));
 }

@@ -1,4 +1,55 @@
-const tl = gsap.timeline();
+gsap.registerPlugin(ScrollTrigger);
+//  ==================================== TITLE TEXT ====================================
+function titleTextEffect() {
+	const titleTextCont = document.querySelectorAll('.title-text');
+	// const tTitle = document.querySelectorAll(
+	// 	'.title-text .title-text-left .title-11'
+	// );
+	// const tHeading = document.querySelector(
+	// 	'.title-text .title-text-left .heading-style-h2'
+	// );
+	// const tButton = document.querySelector('.title-text .glow-button');
+	const tl = gsap.timeline();
+
+	titleTextCont.forEach((container) => {
+		const title = container.firstElementChild.firstElementChild;
+
+		const heading = title.nextElementSibling.firstElementChild;
+		const glowButton = container.lastElementChild.firstElementChild;
+
+		tl.from(title, {
+			x: -50,
+			y: -100,
+			scrollTrigger: {
+				trigger: title,
+				start: 'center 80%',
+				ease: 'power2.out',
+				// markers: true,
+			},
+		})
+			.from(heading, {
+				x: -50,
+				y: -180,
+				scrollTrigger: {
+					trigger: heading,
+					start: 'top 80%',
+					ease: 'power2.out',
+					// markers: true,
+				},
+			})
+			.from(glowButton, {
+				x: -20,
+				y: -180,
+				scrollTrigger: {
+					trigger: glowButton,
+					start: 'top 90%',
+					ease: 'power2.out',
+					// markers: true,
+				},
+			});
+	});
+}
+titleTextEffect();
 
 //  ==================================== PROJECTS ====================================
 function projectPin() {
@@ -30,7 +81,7 @@ function projectPin() {
 					start: 'center center',
 					end: 'bottom+=200 top',
 					pin: true,
-					markers: true,
+					// markers: true,
 				},
 			});
 		}
@@ -43,6 +94,7 @@ function loadingAnimation() {
 	const loader = document.querySelector('#loader');
 	const timer = document.querySelector('#timer');
 	let counter = 0;
+	const tl = gsap.timeline();
 
 	function updateCounter() {
 		if (counter <= 100) {

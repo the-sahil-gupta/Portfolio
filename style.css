@@ -59,16 +59,31 @@ body {
 	justify-content: space-between;
 	align-items: end;
 	border-bottom: 1px solid #252525;
-	.heading-style-h2 {
-		width: 800px;
+
+	.title-text-left {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+
+		overflow: hidden;
+		.title-11 {
+			transition: all ease-out 0.5s;
+		}
+		.title-heading-container {
+			overflow: hidden;
+			width: 800px;
+			.heading-style-h2 {
+				transition: all ease-out 0.7s;
+			}
+		}
+	}
+
+	.title-btn-container {
+		padding: 16px;
+		transition: all ease-out 0.9s;
+		overflow: hidden;
 	}
 }
-.title-text-left {
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-}
-
 .heading-style-h5 {
 	font: 400 28px/1 var(--reg-font-family);
 	letter-spacing: 1.4px;
@@ -87,6 +102,7 @@ body {
 .title-11 {
 	font: 900 11px/1 var(--reg-font-family);
 	color: var(--pri-color);
+	text-transform: uppercase;
 	letter-spacing: 6.5px;
 }
 .para-12 {
@@ -114,7 +130,9 @@ body {
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 0 10px var(--pri-color);
-	transition: box-shadow cubic-bezier(0.36, 0.01, 0.65, 0.99) 0.4s;
+	/* transition: transform ease-out 0.5s; */
+	transition: all cubic-bezier(0.36, 0.01, 0.65, 0.99) 0.4s;
+
 	z-index: 49;
 	cursor: pointer;
 }
@@ -300,11 +318,13 @@ body {
 	/* overflow: hidden; */
 }
 
-/* =============== HERO SECTION =============== */
+/* =============== ABOUT SECTION =============== */
+
+/* =============== BACKDROP SECTION =============== */
 
 .backdrop-blur-section {
 	padding: 55px 32px;
-	background-image: url(./resource/about-section-bg.webp);
+	background-image: url(./resource/backdrop-bg.webp);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -330,6 +350,7 @@ body {
 	transition: opacity ease 0.1s;
 	/* transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.3s; */
 }
+/* =============== PROJECTS SECTION =============== */
 .projects-section {
 	padding: 140px 32px;
 }
@@ -379,4 +400,28 @@ body {
 .project-card:nth-child(n) {
 	/* Dynamically stack cards */
 	z-index: calc(100 - var(--index));
+}
+/* =============== SERVICES SECTION =============== */
+.services-section {
+	padding: 0 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 160px;
+
+	.services-cards-container {
+		display: flex;
+		gap: 32px;
+
+		.service-card {
+			background-color: #131313;
+			padding: 32px;
+			height: 507px;
+			width: 392px;
+			border-radius: 15px;
+
+			display: flex;
+			flex-direction: column;
+			gap: 60px;
+		}
+	}
 }

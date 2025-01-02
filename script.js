@@ -14,8 +14,8 @@ function flipCards() {
 				start: 'top 10%',
 				end: 'bottom+=800 70%',
 				scrub: 2,
-				pin: true,
 				// markers: true,
+				pin: true,
 			},
 		})
 		.to(wrappersList, {

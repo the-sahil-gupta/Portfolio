@@ -229,13 +229,15 @@ function loadingAnimation() {
 			setTimeout(updateCounter, delay);
 		} else {
 			tl.to(timer, {
+				delay: -0.2,
 				y: '-110%',
 				duration: 1,
 				ease: 'power4.inOut',
 			}).to(loader, {
+				delay: -0.2,
 				ease: 'power4.inOut',
-				y: '-110%',
-				duration: 1,
+				y: '-100%',
+				duration: 1.2,
 			});
 		}
 	}

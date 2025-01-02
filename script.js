@@ -1,21 +1,51 @@
 gsap.registerPlugin(ScrollTrigger);
+
+//  ==================================== FLICARDS WITH SCROLLTRIGGER ====================================
+function flipCards() {
+	const cardContainer = document.querySelector('.services-cards-container');
+	const wrappersList = cardContainer.querySelectorAll('.service-card-wrapper');
+
+	const position = [-161.6, -54.2, 52.7, 159.8];
+	const rotation = [-15, -7.5, 7.5, 15];
+	gsap
+		.timeline({
+			scrollTrigger: {
+				trigger: cardContainer,
+				start: 'top 10%',
+				end: 'bottom+=800 70%',
+				scrub: 2,
+				pin: true,
+				// markers: true,
+			},
+		})
+		.to(wrappersList, {
+			xPercent: (i) => position[i],
+			rotateZ: (i) => rotation[i],
+			duration: 12,
+		})
+		.to(wrappersList, {
+			rotateZ: 0,
+			rotateY: 180,
+			stagger: 2,
+			duration: 12,
+		});
+}
+flipCards();
+
 //  ==================================== TITLE TEXT ====================================
 function titleTextEffect() {
 	const titleTextCont = document.querySelectorAll('.title-text');
-	// const tTitle = document.querySelectorAll(
-	// 	'.title-text .title-text-left .title-11'
-	// );
-	// const tHeading = document.querySelector(
-	// 	'.title-text .title-text-left .heading-style-h2'
-	// );
-	// const tButton = document.querySelector('.title-text .glow-button');
+
 	const tl = gsap.timeline();
 
 	titleTextCont.forEach((container) => {
-		const title = container.firstElementChild.firstElementChild;
-
-		const heading = title.nextElementSibling.firstElementChild;
-		const glowButton = container.lastElementChild.firstElementChild;
+		const title = container.querySelector('.title-text-left .title-11');
+		const heading = container.querySelector(
+			'.title-text-left .title-heading-container .heading-style-h2'
+		);
+		const glowButton = container.querySelector(
+			'.title-btn-container .glow-button'
+		);
 
 		tl.from(title, {
 			x: -50,
@@ -89,86 +119,6 @@ function projectPin() {
 }
 projectPin();
 
-//  ==================================== LOADER ====================================
-function loadingAnimation() {
-	const loader = document.querySelector('#loader');
-	const timer = document.querySelector('#timer');
-	let counter = 0;
-	const tl = gsap.timeline();
-
-	function updateCounter() {
-		if (counter <= 100) {
-			timer.innerHTML = counter++;
-			let delay = 30;
-
-			if (counter < 50) {
-				delay = 30;
-			} else if (counter < 70) {
-				delay = 40;
-			} else if (counter < 90) {
-				delay = 60;
-			} else if (counter < 95) {
-				delay = 100;
-			} else if (counter < 99) {
-				delay = 150;
-			} else if (counter < 100) {
-				delay = 250;
-			} else {
-				delay = 500;
-			}
-			setTimeout(updateCounter, delay);
-		} else {
-			tl.to(timer, {
-				y: '-110%',
-				duration: 1,
-				ease: 'power4.inOut',
-			}).to(loader, {
-				ease: 'power4.inOut',
-				y: '-110%',
-				duration: 1,
-			});
-		}
-	}
-	updateCounter();
-}
-loadingAnimation();
-//  ==================================== HERO PORTRAIT EFFECT ====================================
-function heroPortraitEffect() {
-	const heroSection = document.querySelector('.hero-section');
-	const portrait = document.querySelector('.hero-portrait');
-
-	const mouse = {
-		x: 0,
-		y: 0,
-	};
-	const imgPos = { x: 0, y: 0 };
-	const rotationRange = 20; // Maximum rotation angle in degrees
-
-	window.addEventListener('mousemove', (e) => {
-		mouse.x = e.clientX / 4 - 200;
-		mouse.y = e.clientY / 5 - 70;
-	});
-
-	gsap.ticker.add(() => {
-		imgPos.x += (mouse.x - imgPos.x) * 0.08; // Adjust 0.1 for a smoother or quicker response
-		imgPos.y += (mouse.y - imgPos.y) * 0.08;
-
-		// Calculate rotation based on mouse position
-		const rotate = (
-			(mouse.x / (window.innerWidth / 2)) *
-			rotationRange
-		).toFixed(4); // Normalize x to [-rotationRange, rotationRange]
-
-		// Set image position and rotation
-		gsap.set(portrait, {
-			x: imgPos.x,
-			y: imgPos.y,
-			rotation: rotate,
-		});
-	});
-}
-heroPortraitEffect();
-
 //  ==================================== TEXT APPEAR ON SCROLL EFFECT ====================================
 function textAnime() {
 	gsap.registerPlugin(ScrollTrigger);
@@ -212,7 +162,86 @@ function textAnime() {
 	// });
 }
 textAnime();
+//  ==================================== HERO PORTRAIT EFFECT ====================================
+function heroPortraitEffect() {
+	const heroSection = document.querySelector('.hero-section');
+	const portrait = document.querySelector('.hero-portrait');
 
+	const mouse = {
+		x: 0,
+		y: 0,
+	};
+	const imgPos = { x: 0, y: 0 };
+	const rotationRange = 20; // Maximum rotation angle in degrees
+
+	window.addEventListener('mousemove', (e) => {
+		mouse.x = e.clientX / 4 - 200;
+		mouse.y = e.clientY / 5 - 70;
+	});
+
+	gsap.ticker.add(() => {
+		imgPos.x += (mouse.x - imgPos.x) * 0.08; // Adjust 0.1 for a smoother or quicker response
+		imgPos.y += (mouse.y - imgPos.y) * 0.08;
+
+		// Calculate rotation based on mouse position
+		const rotate = (
+			(mouse.x / (window.innerWidth / 2)) *
+			rotationRange
+		).toFixed(4); // Normalize x to [-rotationRange, rotationRange]
+
+		// Set image position and rotation
+		gsap.set(portrait, {
+			x: imgPos.x,
+			y: imgPos.y,
+			rotation: rotate,
+		});
+	});
+}
+heroPortraitEffect();
+
+//  ==================================== LOADER ====================================
+function loadingAnimation() {
+	const loader = document.querySelector('#loader');
+	const timer = document.querySelector('#timer');
+	let counter = 0;
+	const tl = gsap.timeline();
+
+	function updateCounter() {
+		if (counter <= 100) {
+			timer.innerHTML = counter++;
+			let delay = 30;
+
+			if (counter < 50) {
+				delay = 30;
+			} else if (counter < 70) {
+				delay = 40;
+			} else if (counter < 90) {
+				delay = 60;
+			} else if (counter < 95) {
+				delay = 100;
+			} else if (counter < 99) {
+				delay = 150;
+			} else if (counter < 100) {
+				delay = 250;
+			} else {
+				delay = 500;
+			}
+			setTimeout(updateCounter, delay);
+		} else {
+			tl.to(timer, {
+				y: '-110%',
+				duration: 1,
+				ease: 'power4.inOut',
+			}).to(loader, {
+				ease: 'power4.inOut',
+				y: '-110%',
+				duration: 1,
+			});
+		}
+	}
+	updateCounter();
+}
+loadingAnimation();
 // ================================================ LOCOMOTIVE SCROLLTRIGGER ================================================
 // gsap.registerPlugin(ScrollTrigger);
 

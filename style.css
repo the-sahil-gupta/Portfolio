@@ -54,6 +54,7 @@ body {
 
 .title-text {
 	/* padding: 0 32px; */
+	width: 100%;
 	padding-bottom: 32px;
 	display: flex;
 	justify-content: space-between;
@@ -87,6 +88,7 @@ body {
 .heading-style-h5 {
 	font: 400 28px/1 var(--reg-font-family);
 	letter-spacing: 1.4px;
+	text-transform: uppercase;
 }
 .heading-style-h2 {
 	font: 400 72px/1.1 var(--reg-font-family);
@@ -193,7 +195,7 @@ body {
 	justify-content: end;
 	align-items: end;
 
-	/* display: none; */
+	display: none;
 
 	#timer-container {
 		overflow: hidden;
@@ -401,27 +403,82 @@ body {
 	/* Dynamically stack cards */
 	z-index: calc(100 - var(--index));
 }
+
 /* =============== SERVICES SECTION =============== */
 .services-section {
+	min-height: 276vh;
 	padding: 0 32px;
 	display: flex;
 	flex-direction: column;
-	gap: 160px;
+	align-items: center;
+	gap: 100px;
 
 	.services-cards-container {
-		display: flex;
-		gap: 32px;
+		height: 80vh;
+		width: 100%;
 
-		.service-card {
-			background-color: #131313;
-			padding: 32px;
-			height: 507px;
-			width: 392px;
-			border-radius: 15px;
+		position: relative;
 
-			display: flex;
-			flex-direction: column;
-			gap: 60px;
+		.service-card-wrapper {
+			width: 336px;
+			height: 452px;
+			position: absolute;
+			top: 90%;
+			left: 38.5%;
+			transform-style: preserve-3d;
+			transform: translate(0, -100%);
+			.service-card {
+				height: 100%;
+				width: 100%;
+				position: relative;
+				transform-style: preserve-3d;
+				transition: transform ease-in-out 1s;
+
+				.card-front,
+				.card-back {
+					height: 100%;
+					width: 100%;
+					border-radius: 15px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					backface-visibility: hidden;
+				}
+				.card-front {
+					background-color: #131313;
+					padding: 32px;
+
+					z-index: 1;
+
+					display: flex;
+					flex-direction: column;
+					gap: 40px;
+
+					transform: rotateY(180deg);
+
+					ul {
+						list-style: none;
+
+						li {
+							padding: 15px 0;
+							text-align: left;
+							border-bottom: 1px dashed #373737;
+						}
+					}
+					.heading-style-h5.card-number {
+						color: var(--pri-color);
+						font-size: 42px;
+						text-align: right;
+					}
+				}
+				.card-back {
+					z-index: 2;
+					transform: rotateY(0deg);
+					background-image: url(./resource/service-card-back.png);
+					background-size: cover;
+					background-position: center;
+				}
+			}
 		}
 	}
 }

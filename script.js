@@ -1,5 +1,31 @@
 gsap.registerPlugin(ScrollTrigger);
 
+//  ==================================== AWARDS COLUMN SCROLLTRIGGER ====================================
+function columnScrolltrigger() {
+	const awardsSection = document.querySelector('#awards-section');
+	const downOdd = awardsSection.querySelectorAll(
+		'.awards-bg-container .awards-col-wrapper:nth-child(odd) .awards-column'
+	);
+	const evenUp = awardsSection.querySelectorAll(
+		'.awards-bg-container .awards-col-wrapper:nth-child(even) .awards-column'
+	);
+
+	gsap
+		.timeline({
+			scrollTrigger: {
+				trigger: awardsSection,
+				start: 'top bottom',
+				end: 'bottom+=50 top',
+				scrub: 2,
+				duration: 10,
+				markers: true,
+			},
+		})
+		.to(downOdd, { y: 0 })
+		.to(evenUp, { y: '-5%' }, '<');
+}
+columnScrolltrigger();
+
 //  ==================================== FLICARDS WITH SCROLLTRIGGER ====================================
 function flipCards() {
 	const cardContainer = document.querySelector('.services-cards-container');
@@ -12,7 +38,7 @@ function flipCards() {
 			scrollTrigger: {
 				trigger: cardContainer,
 				start: 'top 10%',
-				end: 'bottom+=800 70%',
+				end: 'bottom+=800 90%',
 				pin: true,
 				scrub: 3,
 				// markers: true,

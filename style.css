@@ -491,7 +491,7 @@ body {
 .awards-section {
 	position: relative;
 	/* min-height: 140vh; */
-	height: 62vw;
+	height: 65vw;
 	width: 100%;
 	overflow: hidden;
 
@@ -523,15 +523,15 @@ body {
 				}
 			}
 		}
+		.awards-col-wrapper:nth-child(odd) .awards-column {
+			transform: translateY(-5%);
+		}
 	}
 
 	.awards-overlay {
-		/* background-color: rgba(45, 45, 45, 0.677); */
-		background: linear-gradient(
-			180deg,
-			rgba(0, 0, 0, 0) 0%,
-			rgba(0, 0, 0, 0.75) 100%
-		);
+		padding: 9vw 32px;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+		border-bottom: 1px solid #131313;
 
 		height: 100%;
 		width: 100%;
@@ -544,7 +544,6 @@ body {
 		flex-direction: column;
 		justify-content: end;
 
-		padding: 9vw 32px;
 		.awards-title {
 			display: flex;
 			justify-content: space-between;

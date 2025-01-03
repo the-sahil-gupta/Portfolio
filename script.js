@@ -13,9 +13,9 @@ function flipCards() {
 				trigger: cardContainer,
 				start: 'top 10%',
 				end: 'bottom+=800 70%',
-				scrub: 2,
-				// markers: true,
 				pin: true,
+				scrub: 3,
+				// markers: true,
 			},
 		})
 		.to(wrappersList, {
@@ -36,8 +36,6 @@ flipCards();
 function titleTextEffect() {
 	const titleTextCont = document.querySelectorAll('.title-text');
 
-	const tl = gsap.timeline();
-
 	titleTextCont.forEach((container) => {
 		const title = container.querySelector('.title-text-left .title-11');
 		const heading = container.querySelector(
@@ -46,36 +44,29 @@ function titleTextEffect() {
 		const glowButton = container.querySelector(
 			'.title-btn-container .glow-button'
 		);
-
-		tl.from(title, {
-			x: -50,
-			y: -100,
-			scrollTrigger: {
-				trigger: title,
-				start: 'center 80%',
-				ease: 'power2.out',
-				// markers: true,
-			},
-		})
-			.from(heading, {
-				x: -50,
-				y: -180,
+		gsap
+			.timeline({
 				scrollTrigger: {
-					trigger: heading,
+					trigger: container,
 					start: 'top 80%',
-					ease: 'power2.out',
+					end: 'bottom top',
+					ease: 'power1.inOut',
+					duration: 1,
 					// markers: true,
+					// stagger: 0.1,
 				},
 			})
-			.from(glowButton, {
-				x: -20,
-				y: -180,
-				scrollTrigger: {
-					trigger: glowButton,
-					start: 'top 90%',
-					ease: 'power2.out',
-					// markers: true,
-				},
+			.to(title, {
+				y: 0,
+				x: 0,
+			})
+			.to(heading, {
+				y: 0,
+				x: 0,
+			})
+			.to(glowButton, {
+				y: 0,
+				x: 0,
 			});
 	});
 }

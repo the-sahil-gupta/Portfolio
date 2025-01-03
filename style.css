@@ -337,14 +337,16 @@ body {
 }
 .backdrop-blur-container {
 	padding: 130px 200px;
+	min-height: 100vh;
 	text-align: center;
 	backdrop-filter: blur(50px);
-	min-height: 100vh;
 	background-color: rgba(45, 45, 45, 0.349);
 	border-radius: 10px;
 
-	display: grid;
-	place-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	gap: 38px;
 
 	.glow-button {
@@ -563,4 +565,22 @@ body {
 			}
 		}
 	}
+}
+/* =============== BOOK CALL SECTION =============== */
+
+.bookcall-section {
+	padding: 0;
+
+	.backdrop-blur-section .backdrop-blur-container {
+		gap: 20px;
+		.para-16 {
+			line-height: 1.3;
+		}
+	}
+}
+
+/* =============== FOOTER SECTION =============== */
+.footer-section {
+	width: 100%;
+	height: 100vh;
 }

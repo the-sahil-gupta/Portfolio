@@ -139,7 +139,7 @@ projectPin();
 //  ==================================== TEXT APPEAR ON SCROLL EFFECT ====================================
 function textAnime() {
 	gsap.registerPlugin(ScrollTrigger);
-	const textFull = document.querySelector('.text-anime');
+	const textFull = document.querySelector('#text-anime');
 
 	textFull.innerHTML = textFull.textContent
 		.split('')
@@ -164,19 +164,6 @@ function textAnime() {
 			stagger: 0.02,
 			ease: 'power2.out',
 		});
-	// gsap.to(spans, {
-	// 	opacity: 1,
-	// 	duration: 0.4,
-	// 	stagger: 0.02,
-	// 	ease: 'power2.out',
-	// 	scrollTrigger: {
-	// 		trigger: textFull,
-	// 		start: 'top 90%',
-	// 		end: 'bottom 60%',
-	// 		scrub: 1,
-	// 		markers: true,
-	// 	},
-	// });
 }
 textAnime();
 //  ==================================== HERO PORTRAIT EFFECT ====================================

@@ -18,7 +18,7 @@ function columnScrolltrigger() {
 				end: 'bottom+=50 top',
 				scrub: 2,
 				duration: 10,
-				markers: true,
+				// markers: true,
 			},
 		})
 		.to(downOdd, { y: 0 })

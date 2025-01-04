@@ -1,5 +1,78 @@
 gsap.registerPlugin(ScrollTrigger);
 
+//  ==================================== DRIBBLE OPENING CARDS SCROLLTRIGGER ====================================
+function openingCards() {
+	const dribbleAnimeContainer = document.querySelector(
+		'#dribble-anime-container'
+	);
+	const img1 = dribbleAnimeContainer.querySelector('#dribble-img-1');
+	const img2 = dribbleAnimeContainer.querySelector('#dribble-img-2');
+	const img3 = dribbleAnimeContainer.querySelector('#dribble-img-3');
+	const img4 = dribbleAnimeContainer.querySelector('#dribble-img-4');
+	const img5 = dribbleAnimeContainer.querySelector('#dribble-img-5');
+	const img6 = dribbleAnimeContainer.querySelector('#dribble-img-6');
+
+	gsap
+		.timeline({
+			scrollTrigger: {
+				trigger: dribbleAnimeContainer,
+				start: 'top 80%',
+				end: 'center center',
+				scrub: 0.5,
+				// markers: true,
+			},
+		})
+		.to(img1, {
+			x: '-109%',
+			y: '40%',
+			rotate: -29,
+		})
+		.to(
+			img2,
+			{
+				x: '-115%',
+				rotate: -19,
+			},
+			'<'
+		)
+		.to(
+			img3,
+			{
+				x: '-55%',
+				y: '-45%',
+				rotate: -35,
+			},
+			'<'
+		)
+		.to(
+			img4,
+			{
+				x: '109%',
+				y: '40%',
+				rotate: 29,
+			},
+			'<'
+		)
+		.to(
+			img5,
+			{
+				x: '115%',
+				rotate: 19,
+			},
+			'<'
+		)
+		.to(
+			img6,
+			{
+				x: '55%',
+				y: '-45%',
+				rotate: 35,
+			},
+			'<'
+		);
+}
+openingCards();
+
 //  ==================================== AWARDS COLUMN SCROLLTRIGGER ====================================
 function columnScrolltrigger() {
 	const awardsSection = document.querySelector('#awards-section');

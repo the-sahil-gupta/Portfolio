@@ -222,7 +222,7 @@ body {
 	justify-content: end;
 	align-items: end;
 
-	display: none;
+	/* display: none; */
 
 	#timer-container {
 		overflow: hidden;

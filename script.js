@@ -1,5 +1,74 @@
 gsap.registerPlugin(ScrollTrigger);
 
+//  ==================================== MENU BAR ====================================
+function menuBar() {
+	const togglebtn = document.querySelector('#menu-toggle');
+	const menuContainer = document.querySelector('#menu .menu-container');
+	const links = menuContainer.querySelectorAll(
+		'.menu-links-wrapper .menu-links'
+	);
+	console.log(links);
+
+	togglebtn.addEventListener('click', () => {
+		const label = togglebtn.querySelector('.para-12');
+		if (label.textContent === 'menu') {
+			label.textContent = 'close';
+			gsap
+				.timeline()
+				.to(menuContainer, {
+					y: 0,
+					duration: 0.8,
+					ease: 'power4.inOut',
+				})
+				.fromTo(
+					links,
+					{
+						clipPath: 'inset(100% 0% 0% 0%)',
+						y: '-100%',
+						stagger: 0.05,
+						duration: 0.2,
+						ease: 'power4.inOut',
+					},
+					{
+						clipPath: 'inset(0% 0% 0% 0%)',
+						y: 0,
+						stagger: 0.05,
+						duration: 0.2,
+						ease: 'power4.inOut',
+					}
+				);
+		} else {
+			label.textContent = 'menu';
+			gsap
+				.timeline()
+				.fromTo(
+					links,
+					{
+						clipPath: 'inset(0% 0% 0% 0%)',
+						y: 0,
+						stagger: 0.05,
+						duration: 0.2,
+						ease: 'power4.inOut',
+					},
+					{
+						clipPath: 'inset(100% 0% 0% 0%)',
+						y: '-100%',
+						stagger: 0.05,
+						duration: 0.2,
+						ease: 'power4.inOut',
+					}
+				)
+				.to(menuContainer, {
+					y: '-100%',
+					duration: 0.8,
+					ease: 'power4.inOut',
+					// clipPath: 'inset(0% 0% 100% 0%)',
+				});
+		}
+	});
+}
+menuBar();
+
 //  ==================================== DRIBBLE OPENING CARDS SCROLLTRIGGER ====================================
 function openingCards() {
 	const dribbleAnimeContainer = document.querySelector(

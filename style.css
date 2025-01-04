@@ -41,7 +41,7 @@ body {
 	width: 10px;
 }
 ::-webkit-scrollbar-track {
-	background: #111;
+	background: transparent;
 }
 ::-webkit-scrollbar-thumb {
 	background: var(--pri-color);
@@ -51,6 +51,28 @@ body {
 }
 
 /* =============== GLOBAL =============== */
+
+.heading-style-h1 {
+	font: 400 240px/1 var(--med-font-family);
+	text-transform: uppercase;
+}
+.menu-links {
+	width: fit-content;
+	color: var(--light-theme-color);
+	text-decoration: none;
+	transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+.social-links {
+	color: var(--light-theme-color);
+	letter-spacing: 1.2px;
+	font: 100 12px/1 var(--reg-font-family);
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: color cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+.social-links:hover {
+	color: var(--pri-color);
+}
 
 .title-text {
 	/* padding: 0 32px; */
@@ -114,10 +136,11 @@ body {
 .para-12 {
 	color: var(--light-theme-color);
 	letter-spacing: 1px;
-	font: 100 10px/1 var(--reg-font-family);
+	font: 100 12px/1 var(--reg-font-family);
+	text-transform: uppercase;
 }
 .para-16 {
-	font: 100 16px/1.1 var(--reg-font-family);
+	font: 100 16px/1.3 var(--reg-font-family);
 	text-transform: uppercase;
 	letter-spacing: 0.8px;
 	width: 100%;
@@ -218,7 +241,9 @@ body {
 /* =============== NAV BAR =============== */
 
 .nav-bar {
-	z-index: 99;
+	z-index: 9999;
+	mix-blend-mode: difference;
+
 	padding: 22px 32px;
 	background: transparent;
 	width: 100%;
@@ -236,15 +261,57 @@ body {
 	}
 }
 
-.menu-toggle {
-	mix-blend-mode: difference;
+.menu {
+	z-index: 999;
+	position: fixed;
+	width: 100%;
+	margin: 8px;
+	padding-right: 16px;
+	overflow: hidden;
 
+	.menu-container {
+		border-radius: 10px;
+		padding: 142px 0 42px;
+		height: 100%;
+		width: 100%;
+
+		transform: translateY(-100%);
+
+		display: grid;
+		place-items: center;
+
+		backdrop-filter: blur(50px);
+		background-color: rgba(45, 45, 45, 0.349);
+
+		.menu-links-wrapper {
+			width: fit-content;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 4px;
+
+			overflow: hidden;
+			.menu-links {
+				transform: translateY(-100%);
+			}
+		}
+		.menu-links-wrapper:hover .menu-links {
+			opacity: 0.3;
+		}
+		.menu-links-wrapper .menu-links:hover {
+			opacity: 1;
+		}
+	}
+}
+
+.menu-toggle {
 	display: grid;
 	place-items: center;
 	gap: 12px;
 	cursor: pointer;
 	.para-12 {
 		opacity: 0.9;
+		font-size: 10px;
 	}
 }
 .menu-toggle .menu-bar {
@@ -297,10 +364,12 @@ body {
 	white-space: nowrap;
 	z-index: 1;
 	cursor: default;
+	.para-16 {
+		line-height: 1.1;
+	}
 }
 .marquee-name {
 	color: #131313;
-	font: 400 240px/1 var(--med-font-family);
 	animation: toleftmarquee 10s linear infinite;
 }
 
@@ -623,27 +692,78 @@ body {
 			width: 150px;
 			margin-bottom: -6px;
 		}
-		.para-16 {
-			line-height: 1.3;
-		}
 	}
 }
 
 /* =============== BOOK CALL SECTION =============== */
-
 .bookcall-section {
 	padding: 0;
 
 	.backdrop-blur-section .backdrop-blur-container {
 		gap: 20px;
-		.para-16 {
-			line-height: 1.3;
-		}
 	}
 }
 
 /* =============== FOOTER SECTION =============== */
 .footer-section {
-	width: 100%;
 	height: 100vh;
+	width: 100%;
+	padding: 0 2.1vw 0;
+	overflow: hidden;
+
+	.footer-top {
+		padding: 7vw 0 2vw;
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+		border-bottom: 1px solid #252525;
+
+		.footer-top-left {
+			display: grid;
+			gap: 16px;
+			.para-16 {
+				text-align: left;
+			}
+		}
+		.footer-top-right {
+			width: 50%;
+			display: grid;
+			gap: 8px;
+
+			.menu-links:hover {
+				color: var(--pri-color);
+			}
+		}
+	}
+
+	.footer-copyright {
+		padding: 2vw 0;
+		display: flex;
+		justify-content: space-between;
+		.socials {
+			width: 50%;
+			display: flex;
+			gap: 3.2vw;
+			justify-content: start;
+		}
+	}
+	.footer-name {
+		width: 100%;
+		white-space: nowrap;
+		position: relative;
+		.heading-style-h1 {
+			width: 100%;
+			text-align: center;
+			/* position: absolute; */
+			/* transform: translateX(-32px); */
+			/* letter-spacing: -1vw; */
+			transform: translateY(67.8px);
+
+			font-size: 14.8vw;
+			font-family: var(--reg-font-family);
+			background: var(--gradient-pri-color);
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
 }

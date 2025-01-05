@@ -153,7 +153,6 @@ body {
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 0 10px var(--pri-color);
-	/* transition: transform ease-out 0.5s; */
 	transition: box-shadow cubic-bezier(0.36, 0.01, 0.65, 0.99) 0.4s;
 
 	z-index: 49;
@@ -931,6 +930,90 @@ body {
 		}
 		.heading-style-h2:hover {
 			color: var(--pri-color);
+		}
+	}
+}
+
+/* ============================================= SINGLE PROJECT PAGE ============================================= */
+/* =============== SINGLE PROJECT HERO SECTION =============== */
+.single-project-hero-section {
+	.single-project-card {
+		height: 100vh;
+		width: 100%;
+		background-image: var(--card-bg);
+		background-position: center;
+		background-size: cover;
+		padding: 2vw;
+		display: flex;
+		align-items: end;
+		.card-title {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+
+			.card-title-buttons {
+				display: flex;
+				gap: 8px;
+
+				.card-button {
+					padding: 14px 16px;
+					border-radius: 5px;
+					border: none;
+
+					background-color: rgb(48, 48, 48, 0.1725);
+					backdrop-filter: blur(10px);
+
+					font: 600 11.5px/1 var(--reg-font-family);
+					letter-spacing: 1.4px;
+					color: var(--light-theme-color);
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+	.single-project-details-container {
+		padding: 10vw 2vw;
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+		.s-project-details {
+			width: 39%;
+			display: grid;
+			gap: 16px;
+			.s-details-card {
+				height: 65vh;
+				width: 100%;
+				border-radius: 10px;
+				background: var(--gradient-pri-color);
+			}
+			.glow-button {
+				width: 100%;
+			}
+		}
+
+		.s-project-overview {
+			width: 56%;
+
+			display: flex;
+			flex-direction: column;
+			gap: 48px;
+			.s-project-overview-wrapper {
+				.heading-style-h4 {
+					padding-bottom: 16px;
+				}
+				.para-16 {
+					opacity: 0.4;
+					font-weight: 100;
+					font-family: var(--reg-font-family);
+					font-size: 20px;
+					letter-spacing: -0.1px;
+					width: fit-content;
+					text-align: left;
+					text-transform: none;
+					line-height: 1.5;
+				}
+			}
 		}
 	}
 }

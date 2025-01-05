@@ -99,26 +99,17 @@ body {
 		gap: 32px;
 
 		overflow: hidden;
-		.title-11 {
-			transform: translate(-20%, -100%);
-		}
+
 		.title-heading-container {
 			overflow: hidden;
 			width: 800px;
-			.heading-style-h2 {
-				transform: translate(-20%, -100%);
-			}
 		}
 	}
 
 	.title-btn-container {
 		padding: 16px;
-		transition: all ease-out 0.9s;
+		/* transition: all ease-out 0.9s; */
 		overflow: hidden;
-
-		.glow-button {
-			transform: translate(0, -140%);
-		}
 	}
 }
 .heading-style-h5 {
@@ -232,7 +223,7 @@ body {
 	justify-content: end;
 	align-items: end;
 
-	/* display: none; */
+	display: none;
 
 	#timer-container {
 		overflow: hidden;
@@ -278,7 +269,9 @@ body {
 	margin: 8px;
 	padding-right: 16px;
 	overflow: hidden;
+
 	display: none;
+
 	.menu-container {
 		border-radius: 10px;
 		padding: 142px 0 42px;
@@ -697,6 +690,9 @@ body {
 		backdrop-filter: none;
 		background-color: transparent;
 		gap: 20px;
+		.para-16 {
+			width: 23%;
+		}
 
 		img {
 			width: 150px;
@@ -711,6 +707,13 @@ body {
 
 	.backdrop-blur-section .backdrop-blur-container {
 		gap: 20px;
+
+		.heading-style-h4 {
+			width: 40%;
+		}
+		.para-16 {
+			width: 30%;
+		}
 	}
 }
 

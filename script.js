@@ -1,4 +1,77 @@
 gsap.registerPlugin(ScrollTrigger);
+//  ==================================== SPLIT TEXT CLIPPATH ANIME ====================================
+function textClipPathAnime() {
+	const fullText = document.querySelectorAll('.split-text-clip');
+	fullText.forEach((text) => {
+		text.innerHTML = text.textContent
+			.split('')
+			.map((letter) => `<span>${letter}</span>`)
+			.join('');
+		const spans = text.querySelectorAll('span');
+
+		gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: text,
+					start: 'top bottom',
+					end: 'bottom top',
+					// markers: true,
+				},
+			})
+
+			.fromTo(
+				spans,
+				{
+					clipPath: 'inset(0% 0% 100% 0%)',
+					// y: '100%',
+					stagger: 0.01,
+					duration: 1.2,
+					ease: 'power4.inOut',
+				},
+				{
+					clipPath: 'inset(0% 0% 0% 0%)',
+					// y: '00%',
+					stagger: 0.01,
+					duration: 1.2,
+					ease: 'power4.inOut',
+				}
+			);
+	});
+}
+textClipPathAnime();
+function elemClipPathAnime() {
+	const elements = document.querySelectorAll('.split-elem-clip');
+	elements.forEach((elem) => {
+		gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: elem,
+					start: 'top bottom',
+					end: 'bottom top',
+					// markers: true,
+				},
+			})
+
+			.fromTo(
+				elem,
+				{
+					clipPath: 'inset(-30% -30% 130% -30%)',
+					y: '100%',
+					stagger: 0.01,
+					duration: 1.5,
+					ease: 'power4.inOut',
+				},
+				{
+					clipPath: 'inset(-30% -30% -30% -30%)',
+					y: '00%',
+					stagger: 0.01,
+					duration: 1.5,
+					ease: 'power4.inOut',
+				}
+			);
+	});
+}
+elemClipPathAnime();
 //  ==================================== LOADER ====================================
 function loadingAnimation() {
 	gsap.registerPlugin(ScrollTrigger);
@@ -57,7 +130,7 @@ function menuBar() {
 	const links = menuContainer.querySelectorAll(
 		'.menu-links-wrapper .menu-links'
 	);
-	console.log(links);
+	// console.log(links);
 
 	togglebtn.addEventListener('click', () => {
 		const label = togglebtn.querySelector('.para-12');
@@ -269,7 +342,7 @@ function titleTextEffect() {
 			});
 	});
 }
-titleTextEffect();
+// titleTextEffect();
 
 //  ==================================== FLICARDS WITH SCROLLTRIGGER ====================================
 function flipCards() {

@@ -1,5 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
-//  ==================================== SPLIT TEXT CLIPPATH ANIME ====================================
+//  ==================================== SPLIT CLIPPATH ANIME ====================================
 function textClipPathAnime() {
 	const fullText = document.querySelectorAll('.split-text-clip');
 	fullText.forEach((text) => {
@@ -15,7 +15,7 @@ function textClipPathAnime() {
 					trigger: text,
 					start: 'top bottom',
 					end: 'bottom top',
-					// markers: true,
+					// // markers: true,
 				},
 			})
 
@@ -48,7 +48,7 @@ function elemClipPathAnime() {
 					trigger: elem,
 					start: 'top bottom',
 					end: 'bottom top',
-					// markers: true,
+					// // markers: true,
 				},
 			})
 
@@ -57,14 +57,12 @@ function elemClipPathAnime() {
 				{
 					clipPath: 'inset(-30% -30% 130% -30%)',
 					y: '100%',
-					stagger: 0.01,
 					duration: 1.5,
 					ease: 'power4.inOut',
 				},
 				{
 					clipPath: 'inset(-30% -30% -30% -30%)',
 					y: '00%',
-					stagger: 0.01,
 					duration: 1.5,
 					ease: 'power4.inOut',
 				}
@@ -254,7 +252,7 @@ function textAnime() {
 				start: 'top 90%',
 				end: 'bottom 60%',
 				scrub: 1,
-				// markers: true,
+				// // markers: true,
 			},
 		})
 		.to(spans, {
@@ -268,8 +266,7 @@ textAnime();
 
 //  ==================================== PROJECTS ====================================
 function projectPin() {
-	const cardContainer = document.querySelector('.project-cards-container');
-	const projectCard = document.querySelectorAll('.project-card');
+	const projectCard = document.querySelectorAll('.project-card-link');
 	gsap.registerPlugin(ScrollTrigger);
 
 	projectCard.forEach((card, i) => {
@@ -324,7 +321,7 @@ function titleTextEffect() {
 					end: 'bottom top',
 					ease: 'power1.inOut',
 					duration: 1,
-					// markers: true,
+					// // markers: true,
 					// stagger: 0.1,
 				},
 			})
@@ -359,7 +356,7 @@ function flipCards() {
 				end: 'bottom+=800 90%',
 				pin: true,
 				scrub: 3,
-				// markers: true,
+				// // markers: true,
 			},
 		})
 		.to(wrappersList, {
@@ -394,7 +391,7 @@ function columnScrolltrigger() {
 				end: 'bottom+=50 top',
 				scrub: 2,
 				duration: 10,
-				// markers: true,
+				// // markers: true,
 			},
 		})
 		.to(downOdd, { y: 0 })
@@ -421,7 +418,7 @@ function openingCards() {
 				start: 'top 80%',
 				end: 'center center',
 				scrub: 0.5,
-				// markers: true,
+				// // markers: true,
 			},
 		})
 		.to(img1, {

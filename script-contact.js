@@ -1,52 +1,41 @@
-//  ==================================== LOADER ====================================
-function loadingAnimation() {
+//  ==================================== LOADER OF OTHER PAGES ====================================
+function loadingAndHeadingAnimation() {
 	gsap.registerPlugin(ScrollTrigger);
 
 	const loader = document.querySelector('#loader');
 	const timer = document.querySelector('#timer');
-	let counter = 0;
-
-	function updateCounter() {
-		if (counter <= 100) {
-			timer.textContent = counter++;
-			let delay = 30;
-
-			if (counter < 50) {
-				delay = 30;
-			} else if (counter < 70) {
-				delay = 40;
-			} else if (counter < 90) {
-				delay = 60;
-			} else if (counter < 95) {
-				delay = 100;
-			} else if (counter < 99) {
-				delay = 150;
-			} else if (counter < 100) {
-				delay = 250;
-			} else {
-				delay = 500;
+	const headingTitle = document.querySelector('.heading-title');
+	gsap
+		.timeline()
+		.fromTo(
+			loader,
+			{
+				y: '100%',
+			},
+			{
+				delay: -0.2,
+				ease: 'power2.inOut',
+				y: '-100%',
+				duration: 2,
 			}
-			setTimeout(updateCounter, delay);
-		} else {
-			gsap
-				.timeline()
-				.to(timer, {
-					delay: -0.2,
-					y: '-110%',
-					duration: 1,
-					ease: 'power4.inOut',
-				})
-				.to(loader, {
-					delay: -0.2,
-					ease: 'power4.inOut',
-					y: '-100%',
-					duration: 1.2,
-				});
-		}
-	}
-	updateCounter();
+		)
+		.fromTo(
+			headingTitle,
+			{
+				clipPath: 'inset(00% 0% 100% 0%)',
+				y: '100%',
+				ease: 'power4.inOut',
+				duration: 1,
+			},
+			{
+				clipPath: 'inset(0% 0% 0% 0%)',
+				y: 0,
+				ease: 'power4.inOut',
+				duration: 1,
+			}
+		);
 }
-loadingAnimation();
+loadingAndHeadingAnimation();
 
 //  ==================================== MENU BAR ====================================
 function menuBar() {
@@ -121,3 +110,75 @@ function menuBar() {
 	});
 }
 menuBar();
+
+//  ==================================== SPLIT CLIPPATH ANIME ====================================
+function textClipPathAnime() {
+	const fullText = document.querySelectorAll('.split-text-clip');
+	fullText.forEach((text) => {
+		text.innerHTML = text.textContent
+			.split('')
+			.map((letter) => `<span>${letter}</span>`)
+			.join('');
+		const spans = text.querySelectorAll('span');
+
+		gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: text,
+					start: 'top bottom',
+					end: 'bottom top',
+					// // markers: true,
+				},
+			})
+
+			.fromTo(
+				spans,
+				{
+					clipPath: 'inset(0% 0% 100% 0%)',
+					// y: '100%',
+					stagger: 0.01,
+					duration: 1.2,
+					ease: 'power4.inOut',
+				},
+				{
+					clipPath: 'inset(0% 0% 0% 0%)',
+					// y: '00%',
+					stagger: 0.01,
+					duration: 1.2,
+					ease: 'power4.inOut',
+				}
+			);
+	});
+}
+textClipPathAnime();
+function elemClipPathAnime() {
+	const elements = document.querySelectorAll('.split-elem-clip');
+	elements.forEach((elem) => {
+		gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: elem,
+					start: 'top bottom',
+					end: 'bottom top',
+					// // markers: true,
+				},
+			})
+
+			.fromTo(
+				elem,
+				{
+					clipPath: 'inset(-30% -30% 130% -30%)',
+					y: '100%',
+					duration: 1.5,
+					ease: 'power4.inOut',
+				},
+				{
+					clipPath: 'inset(-30% -30% -30% -30%)',
+					y: '00%',
+					duration: 1.5,
+					ease: 'power4.inOut',
+				}
+			);
+	});
+}
+elemClipPathAnime();

@@ -115,7 +115,7 @@ function menuBar() {
 		}
 	});
 }
-// menuBar();
+menuBar();
 
 //  ==================================== HERO PORTRAIT EFFECT ====================================
 function heroPortraitEffect() {

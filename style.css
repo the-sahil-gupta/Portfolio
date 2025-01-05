@@ -851,3 +851,16 @@ body {
 		}
 	}
 }
+
+/* ============================================= PROJECTS PAGE ============================================= */
+/* =============== PROJECTS HERO SECTION =============== */
+.projects-hero-section .heading-title {
+	font-size: 20vw;
+	margin-top: 2vw;
+}
+/* ============================================= CONTACT PAGE ============================================= */
+/* =============== CONTACT HERO SECTION =============== */
+.contact-hero-section .heading-title {
+	font-size: 22vw;
+	margin-top: 2vw;
+}

@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 //  ==================================== LOADER ====================================
 function loadingAnimation() {
 	gsap.registerPlugin(ScrollTrigger);
@@ -116,7 +115,7 @@ function menuBar() {
 		}
 	});
 }
-menuBar();
+// menuBar();
 
 //  ==================================== HERO PORTRAIT EFFECT ====================================
 function heroPortraitEffect() {
@@ -153,7 +152,7 @@ function heroPortraitEffect() {
 		});
 	});
 }
-heroPortraitEffect();
+// heroPortraitEffect();
 
 //  ==================================== TEXT APPEAR ON SCROLL EFFECT ====================================
 function textAnime() {
@@ -184,7 +183,7 @@ function textAnime() {
 			ease: 'power2.out',
 		});
 }
-textAnime();
+// textAnime();
 
 //  ==================================== PROJECTS ====================================
 function projectPin() {
@@ -222,7 +221,7 @@ function projectPin() {
 		}
 	});
 }
-projectPin();
+// projectPin();
 
 //  ==================================== TITLE TEXT ====================================
 function titleTextEffect() {
@@ -262,7 +261,7 @@ function titleTextEffect() {
 			});
 	});
 }
-titleTextEffect();
+// titleTextEffect();
 
 //  ==================================== FLICARDS WITH SCROLLTRIGGER ====================================
 function flipCards() {
@@ -294,7 +293,7 @@ function flipCards() {
 			duration: 12,
 		});
 }
-flipCards();
+// flipCards();
 
 //  ==================================== AWARDS COLUMN SCROLLTRIGGER ====================================
 function columnScrolltrigger() {
@@ -305,6 +304,7 @@ function columnScrolltrigger() {
 	const evenUp = awardsSection.querySelectorAll(
 		'.awards-bg-container .awards-col-wrapper:nth-child(even) .awards-column'
 	);
+	gsap.registerPlugin(ScrollTrigger);
 
 	gsap
 		.timeline({
@@ -314,7 +314,7 @@ function columnScrolltrigger() {
 				end: 'bottom+=50 top',
 				scrub: 2,
 				duration: 10,
-				// markers: true,
+				markers: true,
 			},
 		})
 		.to(downOdd, { y: 0 })
@@ -393,7 +393,7 @@ function openingCards() {
 			'<'
 		);
 }
-openingCards();
+// openingCards();
 
 // ================================================ LOCOMOTIVE SCROLLTRIGGER ================================================
 // gsap.registerPlugin(ScrollTrigger);

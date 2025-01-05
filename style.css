@@ -52,6 +52,16 @@ body {
 
 /* =============== GLOBAL =============== */
 
+.heading-title {
+	padding: 10px 0;
+	font: 400 30vw/1 var(--reg-font-family);
+	letter-spacing: -4px;
+	text-transform: uppercase;
+	background: var(--gradient-pri-color);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .heading-style-h1 {
 	font: 400 240px/1 var(--med-font-family);
 	text-transform: uppercase;
@@ -213,7 +223,7 @@ body {
 	width: 100%;
 	background: linear-gradient(to bottom, #fa7100, #f44f01);
 
-	z-index: 999;
+	z-index: 99999;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -764,6 +774,80 @@ body {
 			background: var(--gradient-pri-color);
 			background-clip: text;
 			-webkit-text-fill-color: transparent;
+		}
+	}
+}
+
+/* ============================================= ABOUT PAGE ============================================= */
+/* =============== ABOUT HERO SECTION =============== */
+.about-hero-section {
+	.about-hero-container {
+		padding: 32px;
+		display: flex;
+		justify-content: space-between;
+		.about-hero-wrapper {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			gap: 2vw;
+			.heading-style-h4:nth-child(2) {
+				opacity: 0.4;
+			}
+		}
+		img {
+			width: 50%;
+		}
+	}
+}
+
+/* =============== ABOUT DETAILS SECTION =============== */
+.about-details-section {
+	min-height: 100vh;
+	width: 100%;
+	padding: 10vw 2vw;
+
+	display: grid;
+	gap: 128px;
+	.heading-style-h4 {
+		opacity: 0.4;
+		width: 80%;
+	}
+	.tool-box {
+		border-top: 1px solid #252525;
+		padding-top: 64px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		.tool-box-right {
+			width: 58%;
+
+			display: grid;
+			gap: 64px;
+			.heading-style-h5 {
+				display: flex;
+				align-items: end;
+				gap: 20px;
+				flex-wrap: wrap;
+				img {
+					height: 8px;
+					width: 8px;
+					margin-bottom: 6px;
+				}
+			}
+			.tool-box-experience {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+
+				.heading-style-h5 {
+					padding-bottom: 16px;
+				}
+				.para-16 {
+					opacity: 0.4;
+					font-weight: 100;
+					width: fit-content;
+				}
+			}
 		}
 	}
 }

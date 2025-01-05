@@ -278,7 +278,7 @@ body {
 	margin: 8px;
 	padding-right: 16px;
 	overflow: hidden;
-
+	display: none;
 	.menu-container {
 		border-radius: 10px;
 		padding: 142px 0 42px;

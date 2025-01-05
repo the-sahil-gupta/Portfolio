@@ -51,7 +51,9 @@ loadingAnimation();
 //  ==================================== MENU BAR ====================================
 function menuBar() {
 	const togglebtn = document.querySelector('#menu-toggle');
-	const menuContainer = document.querySelector('#menu .menu-container');
+	const menu = document.querySelector('#menu');
+	const menuContainer = menu.querySelector('.menu-container');
+
 	const links = menuContainer.querySelectorAll(
 		'.menu-links-wrapper .menu-links'
 	);
@@ -61,6 +63,8 @@ function menuBar() {
 		const label = togglebtn.querySelector('.para-12');
 		if (label.textContent === 'menu') {
 			label.textContent = 'close';
+			menu.style.display = 'block';
+
 			gsap
 				.timeline()
 				.to(menuContainer, {
@@ -111,6 +115,10 @@ function menuBar() {
 					duration: 0.8,
 					ease: 'power4.inOut',
 					// clipPath: 'inset(0% 0% 100% 0%)',
+
+					onComplete: () => {
+						menu.style.display = 'none';
+					},
 				});
 		}
 	});

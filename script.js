@@ -301,46 +301,6 @@ function projectPin() {
 }
 projectPin();
 
-//  ==================================== TITLE TEXT ====================================
-function titleTextEffect() {
-	const titleTextCont = document.querySelectorAll('.title-text');
-
-	titleTextCont.forEach((container) => {
-		const title = container.querySelector('.title-text-left .title-11');
-		const heading = container.querySelector(
-			'.title-text-left .title-heading-container .heading-style-h2'
-		);
-		const glowButton = container.querySelector(
-			'.title-btn-container .glow-button'
-		);
-		gsap
-			.timeline({
-				scrollTrigger: {
-					trigger: container,
-					start: 'top 80%',
-					end: 'bottom top',
-					ease: 'power1.inOut',
-					duration: 1,
-					// // markers: true,
-					// stagger: 0.1,
-				},
-			})
-			.to(title, {
-				y: 0,
-				x: 0,
-			})
-			.to(heading, {
-				y: 0,
-				x: 0,
-			})
-			.to(glowButton, {
-				y: 0,
-				x: 0,
-			});
-	});
-}
-// titleTextEffect();
-
 //  ==================================== FLICARDS WITH SCROLLTRIGGER ====================================
 function flipCards() {
 	const cardContainer = document.querySelector('.services-cards-container');
@@ -371,7 +331,9 @@ function flipCards() {
 			duration: 12,
 		});
 }
-flipCards();
+if (window.innerWidth > 600) {
+	flipCards();
+}
 
 //  ==================================== AWARDS COLUMN SCROLLTRIGGER ====================================
 function columnScrolltrigger() {

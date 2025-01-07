@@ -199,7 +199,8 @@ menuBar();
 //  ==================================== HERO PORTRAIT EFFECT ====================================
 function heroPortraitEffect() {
 	const heroSection = document.querySelector('.hero-section');
-	const portrait = document.querySelector('.hero-portrait');
+
+	const portraits = document.querySelectorAll('.hero-portrait');
 
 	const mouse = {
 		x: 0,
@@ -213,21 +214,23 @@ function heroPortraitEffect() {
 		mouse.y = e.clientY / 5 - 70;
 	});
 
-	gsap.ticker.add(() => {
-		imgPos.x += (mouse.x - imgPos.x) * 0.08; // Adjust 0.1 for a smoother or quicker response
-		imgPos.y += (mouse.y - imgPos.y) * 0.08;
+	portraits.forEach((portrait, index) => {
+		gsap.ticker.add(() => {
+			imgPos.x += (mouse.x - imgPos.x) * 0.04; // Adjust 0.1 for a smoother or quicker response
+			imgPos.y += (mouse.y - imgPos.y) * 0.04;
 
-		// Calculate rotation based on mouse position
-		const rotate = (
-			(mouse.x / (window.innerWidth / 2)) *
-			rotationRange
-		).toFixed(4); // Normalize x to [-rotationRange, rotationRange]
+			// Calculate rotation based on mouse position
+			const rotate = (
+				(mouse.x / (window.innerWidth / 2)) *
+				rotationRange
+			).toFixed(4); // Normalize x to [-rotationRange, rotationRange]
 
-		// Set image position and rotation
-		gsap.set(portrait, {
-			x: imgPos.x,
-			y: imgPos.y,
-			rotation: rotate,
+			// Set image position and rotation
+			gsap.set(portrait, {
+				x: imgPos.x,
+				y: imgPos.y,
+				rotation: rotate,
+			});
 		});
 	});
 }

@@ -268,60 +268,7 @@ body {
 .menu-toggle:hover .menu-bar {
 	width: 156px;
 }
-@media (max-width: 600px) {
-	.nav-bar {
-		padding: 22px 16px;
-		justify-content: center;
-		align-items: center;
 
-		.link {
-			display: none;
-		}
-	}
-	.menu {
-		padding: 4px;
-	}
-	.heading-style-h4 {
-		font: 400 30px/1.2 var(--reg-font-family);
-		letter-spacing: 0px;
-	}
-	.heading-style-h2 {
-		font-size: 40px;
-		letter-spacing: 1px;
-	}
-	.para-16 {
-		font-size: 13px;
-	}
-	.title-text {
-		padding-bottom: 32px;
-		flex-direction: column;
-		align-items: start;
-		gap: 32px;
-		border-bottom: 1px solid #252525;
-
-		.title-text-left {
-			display: flex;
-			flex-direction: column;
-			gap: 32px;
-
-			overflow: hidden;
-
-			.heading-style-h2 {
-				width: 89vw;
-			}
-		}
-	}
-	.heading-style-h5 {
-		font-size: 20px;
-	}
-
-	.para-12 {
-		color: var(--light-theme-color);
-		letter-spacing: 1px;
-		font: 100 12px/1 var(--reg-font-family);
-		text-transform: uppercase;
-	}
-}
 .menu {
 	z-index: 999;
 	position: fixed;
@@ -375,21 +322,43 @@ body {
 	position: relative;
 	overflow: hidden;
 }
-.hero-portrait {
-	background: linear-gradient(to bottom, #fa7300, #f34f00);
-	object-fit: cover;
-	border-radius: 12px;
-	height: 524px;
-	width: 382px;
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.hero-portrait-wrapper {
+	.hero-portrait {
+		background: linear-gradient(to bottom, #fa7300, #f34f00);
+		object-fit: cover;
+		border-radius: 12px;
+		height: 524px;
+		width: 382px;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 
-	/* =============== HOVER DRAG ANIMATION =============== */
-	/* mix-blend-mode: difference; */
-	pointer-events: none;
-	z-index: 98;
+		/* =============== HOVER DRAG ANIMATION =============== */
+		/* mix-blend-mode: difference; */
+		pointer-events: none;
+		z-index: 90;
+	}
+	.hero-portrait:nth-child(2) {
+		z-index: 89;
+		opacity: 0.6;
+		transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+	}
+	.hero-portrait:nth-child(3) {
+		z-index: 88;
+		opacity: 0.45;
+		transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.45s;
+	}
+	.hero-portrait:nth-child(4) {
+		z-index: 87;
+		opacity: 0.3;
+		transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.64s;
+	}
+	.hero-portrait:nth-child(5) {
+		z-index: 86;
+		opacity: 0.15;
+		transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.92s;
+	}
 }
 
 .marquee-container {
@@ -460,19 +429,7 @@ body {
 		margin-top: 16px;
 	}
 }
-@media (max-width: 600px) {
-	.backdrop-blur-section {
-		padding: 55px 16px;
-		.backdrop-blur-container {
-			padding: 60px 0;
-			gap: 16px;
 
-			.heading-style-h4 {
-				width: 90%;
-			}
-		}
-	}
-}
 .text-anime span {
 	opacity: 0.2;
 	transition: opacity ease 0.1s;
@@ -564,56 +521,16 @@ body {
 	/* Dynamically stack cards */
 	z-index: calc(100 - var(--index));
 }
-@media (max-width: 600px) {
-	.projects-section {
-		padding: 9vw 16px;
-	}
-	.project-card-link {
-		height: 70vh;
-		width: 94vw;
 
-		.project-card {
-			background-size: cover;
-
-			.card-title {
-				flex-direction: column;
-				gap: 24px;
-				.card-title-buttons {
-					display: flex;
-					flex-direction: column;
-					gap: 8px;
-
-					.card-button {
-						width: fit-content;
-					}
-				}
-			}
-		}
-	}
-	.project-card-link:hover .project-card {
-		background-size: cover;
-		.heading-style-h5 {
-			transform: translateY(0%);
-		}
-		.card-title-buttons {
-			.card-button {
-				transform: translateY(0%);
-				opacity: 1;
-			}
-		}
-	}
-}
 /* =============== SERVICES SECTION =============== */
 .services-section {
 	min-height: 276vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 100px;
+
 	padding: 0 32px;
 
 	.services-cards-container {
-		height: 80vh;
+		padding: 100px 0;
+		min-height: 80vh;
 		width: 100%;
 
 		position: relative;
@@ -681,19 +598,7 @@ body {
 		}
 	}
 }
-@media (max-width: 600px) {
-	.services-section {
-		padding: 0 16px;
-		min-height: 100vh;
-		.services-cards-container {
-			height: auto;
-			width: 100%;
-			.service-card-wrapper {
-				transform: translate(0, -50%);
-			}
-		}
-	}
-}
+
 /* =============== AWARDS SECTION =============== */
 .awards-section {
 	position: relative;
@@ -775,35 +680,7 @@ body {
 		}
 	}
 }
-@media (max-width: 600px) {
-	.awards-section {
-		height: 80vw;
 
-		.awards-overlay {
-			padding: 9vw 16px;
-
-			.awards-title {
-				flex-direction: column;
-				align-items: start;
-				gap: 32px;
-				.heading-style-h2 {
-					width: 100%;
-				}
-				.awards-logo-cont {
-					width: 40%;
-					flex-direction: column;
-					align-items: start;
-					img:nth-child(1) {
-						width: 35vw;
-					}
-					img:nth-child(2) {
-						width: 100%;
-					}
-				}
-			}
-		}
-	}
-}
 /* =============== DRIBBLE SECTION =============== */
 .dribble-section {
 	padding: 15vw 2vw 6vw;
@@ -931,44 +808,6 @@ body {
 			background: var(--gradient-pri-color);
 			background-clip: text;
 			-webkit-text-fill-color: transparent;
-		}
-	}
-}
-@media (max-width: 600px) {
-	.dribble-section .dribble-overlay-container .para-16 {
-		width: 50%;
-	}
-	.bookcall-section {
-		.backdrop-blur-section .backdrop-blur-container {
-			gap: 10px;
-
-			.heading-style-h4 {
-				width: 80%;
-			}
-			.para-16 {
-				width: 90%;
-			}
-		}
-	}
-	.footer-section {
-		padding: 7vw 16px 0;
-
-		.footer-top {
-			flex-direction: column;
-			gap: 60px;
-		}
-
-		.footer-copyright {
-			flex-direction: column-reverse;
-			gap: 60px;
-			.socials {
-				flex-direction: column;
-			}
-		}
-		.footer-name {
-			.heading-style-h1 {
-				transform: translateY(10px);
-			}
 		}
 	}
 }
@@ -1179,6 +1018,211 @@ body {
 					text-transform: none;
 					line-height: 1.5;
 				}
+			}
+		}
+	}
+}
+/* ============================================= RESPONSIVE ============================================= */
+
+@media (max-width: 600px) {
+	/* =============== GLOBAL RESPONSIVE =============== */
+	.nav-bar {
+		padding: 22px 16px;
+		justify-content: center;
+		align-items: center;
+
+		.link {
+			display: none;
+		}
+	}
+	.menu {
+		padding: 4px;
+	}
+	.heading-style-h4 {
+		font: 400 30px/1.2 var(--reg-font-family);
+		letter-spacing: 0px;
+	}
+	.heading-style-h2 {
+		font-size: 40px;
+		letter-spacing: 1px;
+	}
+	.para-16 {
+		font-size: 13px;
+	}
+	.title-text {
+		padding-bottom: 32px;
+		flex-direction: column;
+		align-items: start;
+		gap: 32px;
+		border-bottom: 1px solid #252525;
+
+		.title-text-left {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+
+			overflow: hidden;
+
+			.heading-style-h2 {
+				width: 89vw;
+			}
+		}
+	}
+	.heading-style-h5 {
+		font-size: 20px;
+	}
+}
+@media (max-width: 600px) {
+	/* =============== BACKDROP RESPONSIVE =============== */
+	.backdrop-blur-section {
+		padding: 55px 16px;
+		.backdrop-blur-container {
+			padding: 60px 0;
+			gap: 16px;
+
+			.heading-style-h4 {
+				width: 90%;
+			}
+		}
+	}
+	/* =============== PROJECTS RESPONSIVE =============== */
+	.projects-section {
+		padding: 9vw 16px;
+	}
+	.project-card-link {
+		height: 70vh;
+		width: 94vw;
+
+		.project-card {
+			background-size: cover;
+
+			.card-title {
+				flex-direction: column;
+				gap: 24px;
+				.card-title-buttons {
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+
+					.card-button {
+						width: fit-content;
+					}
+				}
+			}
+		}
+	}
+	.project-card-link:hover .project-card {
+		background-size: cover;
+		.heading-style-h5 {
+			transform: translateY(0%);
+		}
+		.card-title-buttons {
+			.card-button {
+				transform: translateY(0%);
+				opacity: 1;
+			}
+		}
+	}
+	/* =============== SERVICES RESPONSIVE =============== */
+	.services-section {
+		padding: 0 16px;
+		min-height: 100vh;
+		.services-cards-container {
+			padding-top: 50px;
+			height: auto;
+			width: 100%;
+
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			.service-card-wrapper {
+				height: 380px;
+				width: 100%;
+				position: static;
+				transform: translate(0, 0%);
+				.service-card {
+					.card-front {
+						gap: 18px;
+						transform: rotateY(0deg);
+
+						ul li {
+							padding: 14px 0;
+						}
+
+						.heading-style-h5.card-number {
+							font-size: 28px;
+						}
+					}
+					.card-back {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	/* =============== AWARDS RESPONSIVE =============== */
+	.awards-section {
+		height: 80vw;
+
+		.awards-overlay {
+			padding: 9vw 16px;
+
+			.awards-title {
+				flex-direction: column;
+				align-items: start;
+				gap: 32px;
+				.heading-style-h2 {
+					width: 100%;
+				}
+				.awards-logo-cont {
+					width: 40%;
+					flex-direction: column;
+					align-items: start;
+					img:nth-child(1) {
+						width: 35vw;
+					}
+					img:nth-child(2) {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	/* =============== DRIBBLE RESPONSIVE =============== */
+	.dribble-section .dribble-overlay-container .para-16 {
+		width: 50%;
+	}
+	.bookcall-section {
+		.backdrop-blur-section .backdrop-blur-container {
+			gap: 10px;
+
+			.heading-style-h4 {
+				width: 80%;
+			}
+			.para-16 {
+				width: 90%;
+			}
+		}
+	}
+	/* =============== FOOTER RESPONSIVE =============== */
+	.footer-section {
+		padding: 7vw 16px 0;
+
+		.footer-top {
+			flex-direction: column;
+			gap: 60px;
+		}
+
+		.footer-copyright {
+			flex-direction: column-reverse;
+			gap: 60px;
+			.socials {
+				flex-direction: column;
+			}
+		}
+		.footer-name {
+			.heading-style-h1 {
+				transform: translateY(10px);
 			}
 		}
 	}

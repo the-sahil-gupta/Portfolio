@@ -225,9 +225,12 @@ body {
 	}
 }
 @media (max-width: 600px) {
-	#loader #timer-container #timer {
-		font-size: 60vw;
-		letter-spacing: -20px;
+	#loader {
+		padding-bottom: 100px;
+		#timer-container #timer {
+			font-size: 60vw;
+			letter-spacing: -20px;
+		}
 	}
 }
 

@@ -1406,7 +1406,7 @@ body {
 		}
 		.footer-name {
 			.heading-style-h1 {
-				transform: translateY(10px);
+				transform: translateY(0px);
 			}
 		}
 	}

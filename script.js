@@ -1,4 +1,22 @@
+//  ==================================== SMOOTH SCROLLING LENIS ====================================
+function smoothScroll() {
+	document.addEventListener('DOMContentLoaded', () => {
+		const lenis = new Lenis({
+			smooth: true, // Enable smooth scrolling
+			lerp: 0.08, // Adjust smoothness (lower = smoother)
+		});
+
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+	});
+}
+smoothScroll();
 gsap.registerPlugin(ScrollTrigger);
+
 //  ==================================== SPLIT CLIPPATH ANIME ====================================
 function textClipPathAnime() {
 	const fullText = document.querySelectorAll('.split-text-clip');
@@ -304,7 +322,7 @@ function projectPin() {
 }
 projectPin();
 
-//  ==================================== FLICARDS WITH SCROLLTRIGGER ====================================
+//  ==================================== FLIPCARDS WITH SCROLLTRIGGER ====================================
 function flipCards() {
 	const cardContainer = document.querySelector('.services-cards-container');
 	const wrappersList = cardContainer.querySelectorAll('.service-card-wrapper');
@@ -319,7 +337,7 @@ function flipCards() {
 				end: 'bottom+=800 90%',
 				pin: true,
 				scrub: 3,
-				// // markers: true,
+				// markers: true,
 			},
 		})
 		.to(wrappersList, {

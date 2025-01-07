@@ -1,3 +1,21 @@
+//  ==================================== SMOOTH SCROLLING LENIS ====================================
+function smoothScroll() {
+	document.addEventListener('DOMContentLoaded', () => {
+		const lenis = new Lenis({
+			smooth: true, // Enable smooth scrolling
+			lerp: 0.08, // Adjust smoothness (lower = smoother)
+		});
+
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+	});
+}
+smoothScroll();
+
 //  ==================================== LOADER OF OTHER PAGES ====================================
 function loadingAndHeadingAnimation() {
 	gsap.registerPlugin(ScrollTrigger);

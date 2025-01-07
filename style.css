@@ -953,7 +953,7 @@ body {
 		width: 100%;
 		background-image: var(--card-bg);
 		background-position: center;
-		background-size: cover;
+		background-size: 120%;
 		padding: 32px;
 		display: flex;
 		align-items: end;

@@ -23,6 +23,9 @@ function loadingAndHeadingAnimation() {
 	const loader = document.querySelector('#loader');
 	const timer = document.querySelector('#timer');
 	const headingTitle = document.querySelector('.heading-title');
+
+	const singleProjectCard = document.querySelector('.single-project-card');
+
 	gsap
 		.timeline()
 		.fromTo(
@@ -37,21 +40,10 @@ function loadingAndHeadingAnimation() {
 				duration: 2,
 			}
 		)
-		.fromTo(
-			headingTitle,
-			{
-				clipPath: 'inset(00% 0% 100% 0%)',
-				y: '100%',
-				ease: 'power4.inOut',
-				duration: 1,
-			},
-			{
-				clipPath: 'inset(0% 0% 0% 0%)',
-				y: 0,
-				ease: 'power4.inOut',
-				duration: 1,
-			}
-		);
+		.to(singleProjectCard, {
+			delay: -1,
+			backgroundSize: '100%',
+		});
 }
 loadingAndHeadingAnimation();
 

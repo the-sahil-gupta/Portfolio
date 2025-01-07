@@ -202,4 +202,4 @@ function pinDetailsAnime() {
 		},
 	});
 }
-pinDetailsAnime();
+if (window.innerWidth > 600) pinDetailsAnime();

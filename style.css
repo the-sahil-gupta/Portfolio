@@ -209,7 +209,7 @@ body {
 	justify-content: end;
 	align-items: end;
 
-	/* display: none; */
+	display: none;
 
 	#timer-container {
 		overflow: hidden;
@@ -273,14 +273,14 @@ body {
 	z-index: 999;
 	position: fixed;
 	width: 100%;
-	margin: 8px;
-	padding-right: 16px;
+	margin: 10px;
+	padding-right: 20px;
 	overflow: hidden;
 
 	display: none;
 
 	.menu-container {
-		border-radius: 10px;
+		border-radius: 8px;
 		padding: 142px 0 42px;
 		height: 100%;
 		width: 100%;
@@ -489,7 +489,7 @@ body {
 					border-radius: 5px;
 					border: none;
 
-					background-color: rgb(48, 48, 48, 0.1725);
+					background-color: rgba(45, 45, 45, 0.17);
 					backdrop-filter: blur(10px);
 
 					font: 600 11.5px/1 var(--reg-font-family);
@@ -953,7 +953,7 @@ body {
 		width: 100%;
 		background-image: var(--card-bg);
 		background-position: center;
-		background-size: 120%;
+		background-size: cover;
 		padding: 32px;
 		display: flex;
 		align-items: end;
@@ -984,7 +984,7 @@ body {
 		}
 	}
 	.single-project-details-container {
-		padding: 10vw 2vw;
+		padding: 10vw 32px;
 		display: flex;
 		justify-content: space-between;
 		align-items: start;
@@ -1028,89 +1028,7 @@ body {
 		}
 	}
 }
-@media (max-width: 600px) {
-	.single-project-hero-section {
-		.single-project-card {
-			height: 100vh;
-			width: 100%;
-			background-image: var(--card-bg);
-			background-position: center;
-			background-size: cover;
-			padding: 32px;
-			display: flex;
-			align-items: end;
-			.card-title {
-				width: 100%;
-				display: flex;
-				justify-content: space-between;
-				align-items: baseline;
 
-				.card-title-buttons {
-					display: flex;
-					gap: 8px;
-
-					.card-button {
-						padding: 14px 16px;
-						border-radius: 5px;
-						border: none;
-
-						background-color: rgb(48, 48, 48, 0.1725);
-						backdrop-filter: blur(10px);
-
-						font: 600 11.5px/1 var(--reg-font-family);
-						letter-spacing: 1.4px;
-						color: var(--light-theme-color);
-						text-transform: uppercase;
-					}
-				}
-			}
-		}
-		.single-project-details-container {
-			padding: 10vw 2vw;
-			display: flex;
-			justify-content: space-between;
-			align-items: start;
-			.s-project-details {
-				width: 39%;
-				display: grid;
-				gap: 16px;
-				.s-details-card {
-					height: 65vh;
-					width: 100%;
-					border-radius: 10px;
-					background: var(--gradient-pri-color);
-				}
-				.glow-button {
-					width: 100%;
-				}
-			}
-
-			.s-project-overview {
-				width: 56%;
-
-				display: flex;
-				flex-direction: column;
-				gap: 48px;
-				.s-project-overview-wrapper {
-					.heading-style-h4 {
-						padding-bottom: 16px;
-					}
-					.para-16 {
-						opacity: 0.4;
-						font-weight: 100;
-						font-family: var(--reg-font-family);
-						font-size: 20px;
-						letter-spacing: -0.1px;
-						width: fit-content;
-						text-align: left;
-						text-transform: none;
-						line-height: 1.5;
-					}
-				}
-			}
-		}
-	}
-}
 /* ============================================= RESPONSIVE ============================================= */
 
 @media (max-width: 600px) {
@@ -1131,15 +1049,13 @@ body {
 			display: none;
 		}
 	}
-	.menu {
-		padding: 4px;
-	}
+
 	.heading-style-h4 {
-		font: 400 30px/1.1 var(--reg-font-family);
+		font: 400 29px/1.2 var(--reg-font-family);
 		letter-spacing: 0px;
 	}
 	.heading-style-h2 {
-		font-size: 40px;
+		font-size: 38px;
 		letter-spacing: 1px;
 	}
 	.para-16 {
@@ -1396,6 +1312,46 @@ body {
 			.project-card-link {
 				height: 55vh;
 				width: 100%;
+			}
+		}
+	}
+
+	/* =============== SINGLE PROJECTS PAGE RESPONSIVE =============== */
+	.single-project-hero-section {
+		.single-project-card {
+			padding: 16px;
+			display: flex;
+			align-items: end;
+			.card-title {
+				flex-direction: column;
+				gap: 12px;
+			}
+		}
+		.single-project-details-container {
+			padding: 16vw 16px 10vw;
+			flex-direction: column;
+			gap: 64px;
+			.s-project-details {
+				width: 100%;
+			}
+
+			.s-project-overview {
+				width: 100%;
+
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				.s-project-overview-wrapper {
+					.heading-style-h4 {
+						font-size: 29px;
+						padding: 10px 0;
+					}
+					.para-16 {
+						font-size: 16px;
+						letter-spacing: 0.8px;
+						line-height: 1.6;
+					}
+				}
 			}
 		}
 	}

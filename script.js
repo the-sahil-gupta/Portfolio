@@ -228,7 +228,7 @@ function heroPortraitEffect() {
 	const rotationRange = 20; // Maximum rotation angle in degrees
 
 	window.addEventListener('mousemove', (e) => {
-		mouse.x = e.clientX / 4 - 200;
+		mouse.x = e.clientX / 4 - (window.innerWidth > 600 ? 200 : 70);
 		mouse.y = e.clientY / 5 - 50;
 	});
 

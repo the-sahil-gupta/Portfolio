@@ -21,29 +21,21 @@ function loadingAndHeadingAnimation() {
 	gsap.registerPlugin(ScrollTrigger);
 
 	const loader = document.querySelector('#loader');
-	const timer = document.querySelector('#timer');
-	const headingTitle = document.querySelector('.heading-title');
 
 	const singleProjectCard = document.querySelector('.single-project-card');
 
-	gsap
-		.timeline()
-		.fromTo(
-			loader,
-			{
-				y: '90%',
-			},
-			{
-				delay: -0.2,
-				ease: 'power2.inOut',
-				y: '-110%',
-				duration: 2,
-			}
-		)
-		.to(singleProjectCard, {
-			delay: -1,
-			backgroundSize: '100%',
-		});
+	gsap.timeline().fromTo(
+		loader,
+		{
+			y: '90%',
+		},
+		{
+			delay: -0.2,
+			ease: 'power2.inOut',
+			y: '-110%',
+			duration: 2,
+		}
+	);
 }
 loadingAndHeadingAnimation();
 

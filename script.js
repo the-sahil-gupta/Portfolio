@@ -211,7 +211,7 @@ function heroPortraitEffect() {
 
 	window.addEventListener('mousemove', (e) => {
 		mouse.x = e.clientX / 4 - 200;
-		mouse.y = e.clientY / 5 - 70;
+		mouse.y = e.clientY / 5 - 50;
 	});
 
 	portraits.forEach((portrait, index) => {

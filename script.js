@@ -324,37 +324,40 @@ projectPin();
 
 //  ==================================== FLIPCARDS WITH SCROLLTRIGGER ====================================
 function flipCards() {
-	const cardContainer = document.querySelector('.services-cards-container');
-	const wrappersList = cardContainer.querySelectorAll('.service-card-wrapper');
+	if (window.innerWidth > 600) {
+		const cardContainer = document.querySelector('.services-cards-container');
+		const wrappersList = cardContainer.querySelectorAll(
+			'.service-card-wrapper'
+		);
 
-	const position = [-161.6, -54.2, 52.7, 159.8];
-	const rotation = [-15, -7.5, 7.5, 15];
-	gsap
-		.timeline({
-			scrollTrigger: {
-				trigger: cardContainer,
-				start: 'top 10%',
-				end: 'bottom+=800 90%',
-				pin: true,
-				scrub: 3,
-				// markers: true,
-			},
-		})
-		.to(wrappersList, {
-			xPercent: (i) => position[i],
-			rotateZ: (i) => rotation[i],
-			duration: 12,
-		})
-		.to(wrappersList, {
-			rotateZ: 0,
-			rotateY: 180,
-			stagger: 2,
-			duration: 12,
-		});
+		const position = [-161.6, -54.2, 52.7, 159.8];
+		const rotation = [-15, -7.5, 7.5, 15];
+		gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: cardContainer,
+					start: 'top 10%',
+					end: 'bottom+=800 90%',
+					pin: true,
+					scrub: 3,
+					// markers: true,
+				},
+			})
+			.to(wrappersList, {
+				xPercent: (i) => position[i],
+				rotateZ: (i) => rotation[i],
+				duration: 12,
+			})
+			.to(wrappersList, {
+				rotateZ: 0,
+				rotateY: 180,
+				stagger: 2,
+				duration: 12,
+			});
+	}
 }
-if (window.innerWidth > 600) {
-	flipCards();
-}
+
+flipCards();
 
 //  ==================================== AWARDS COLUMN SCROLLTRIGGER ====================================
 function columnScrolltrigger() {

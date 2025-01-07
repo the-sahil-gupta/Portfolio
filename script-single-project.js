@@ -204,20 +204,22 @@ elemClipPathAnime();
 
 //  ==================================== PROJECT DETAILS PIN ANIME ====================================
 function pinDetailsAnime() {
-	const detailsContainer = document.querySelector(
-		'.single-project-details-container'
-	);
-	const detailsCard = detailsContainer.querySelector('.s-project-details');
+	if (window.innerWidth > 600) {
+		const detailsContainer = document.querySelector(
+			'.single-project-details-container'
+		);
+		const detailsCard = detailsContainer.querySelector('.s-project-details');
 
-	gsap.to(detailsCard, {
-		scrollTrigger: {
-			trigger: detailsCard,
-			pin: true,
-			scrub: 1,
-			start: 'top-=65 top',
-			end: 'bottom+=200 top',
-			// markers: true,
-		},
-	});
+		gsap.to(detailsCard, {
+			scrollTrigger: {
+				trigger: detailsCard,
+				pin: true,
+				scrub: 1,
+				start: 'top-=65 top',
+				end: 'bottom+=200 top',
+				// markers: true,
+			},
+		});
+	}
 }
-if (window.innerWidth > 600) pinDetailsAnime();
+pinDetailsAnime();

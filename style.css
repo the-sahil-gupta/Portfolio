@@ -224,15 +224,6 @@ body {
 		}
 	}
 }
-@media (max-width: 600px) {
-	#loader {
-		padding-bottom: 100px;
-		#timer-container #timer {
-			font-size: 60vw;
-			letter-spacing: -20px;
-		}
-	}
-}
 
 /* =============== NAV BAR =============== */
 
@@ -710,14 +701,15 @@ body {
 			display: flex;
 			flex-direction: column;
 			.dribble-img-wrapper {
-				height: 49vh;
+				padding: 0 8px;
+				height: 22.2vw;
 				width: 48.4vw;
 				margin-bottom: -50px;
 				position: relative;
 				img {
 					border-radius: 10px;
-					height: 49vh;
-					width: 47.4vw;
+					height: 100%;
+					width: 100%;
 					object-fit: cover;
 				}
 			}
@@ -899,61 +891,6 @@ body {
 		}
 	}
 }
-@media (max-width: 600px) {
-	.about-hero-section {
-		.about-hero-container {
-			padding: 16px;
-			flex-direction: column-reverse;
-			gap: 32px;
-
-			.about-hero-wrapper {
-				width: 100%;
-				gap: 16px;
-				.heading-style-h4:nth-child(2) {
-					opacity: 0.4;
-				}
-			}
-			img {
-				height: 100vw;
-				width: 100%;
-			}
-		}
-	}
-	.about-details-section {
-		padding: 10vw 16px 140px;
-
-		.heading-style-h4 {
-			width: 100%;
-		}
-
-		.tool-box {
-			padding-top: 32px;
-			flex-direction: column;
-			gap: 32px;
-			.tool-box-right {
-				width: 100%;
-
-				gap: 32px;
-
-				.tool-box-right-container {
-					gap: 8px;
-					img {
-						margin: 0 8px;
-						margin-bottom: 4px;
-					}
-				}
-
-				.tool-box-experience {
-					gap: 16px;
-
-					.heading-style-h5 {
-						padding-bottom: 8px;
-					}
-				}
-			}
-		}
-	}
-}
 
 /* ============================================= PROJECTS PAGE ============================================= */
 /* =============== PROJECTS HERO SECTION =============== */
@@ -1007,38 +944,7 @@ body {
 		}
 	}
 }
-@media (max-width: 600px) {
-	.projects-hero-section {
-		.heading-title {
-			padding: 46px 0;
-			font-size: 21vw;
-		}
-		.project-cards-container {
-			padding: 10vw 16px;
-			flex-direction: column;
 
-			.project-card-link {
-				height: 55vh;
-				width: 100%;
-			}
-		}
-	}
-	.contact-hero-section {
-		.heading-title {
-			padding: 46px 0;
-		}
-		.contact-hero-container {
-			padding: 10vw 16px;
-
-			.para-16 {
-				margin-bottom: 20px;
-			}
-			.heading-style-h2 {
-				margin-bottom: -8px;
-			}
-		}
-	}
-}
 /* ============================================= SINGLE PROJECT PAGE ============================================= */
 /* =============== SINGLE PROJECT HERO SECTION =============== */
 .single-project-hero-section {
@@ -1209,6 +1115,13 @@ body {
 
 @media (max-width: 600px) {
 	/* =============== GLOBAL RESPONSIVE =============== */
+	#loader {
+		padding-bottom: 60px;
+		#timer-container #timer {
+			font-size: 60vw;
+			letter-spacing: -20px;
+		}
+	}
 	.nav-bar {
 		padding: 22px 16px;
 		justify-content: center;
@@ -1254,8 +1167,7 @@ body {
 	.heading-style-h5 {
 		font-size: 20px;
 	}
-}
-@media (max-width: 600px) {
+
 	/* =============== BACKDROP RESPONSIVE =============== */
 	.backdrop-blur-section {
 		padding: 55px 16px;
@@ -1372,8 +1284,13 @@ body {
 		}
 	}
 	/* =============== DRIBBLE RESPONSIVE =============== */
-	.dribble-section .dribble-overlay-container .para-16 {
-		width: 50%;
+	.dribble-section {
+		.dribble-anime-container .dribble-col .dribble-img-wrapper {
+			height: 35vw;
+		}
+		.dribble-overlay-container .para-16 {
+			width: 50%;
+		}
 	}
 	.bookcall-section {
 		.backdrop-blur-section .backdrop-blur-container {
@@ -1407,6 +1324,94 @@ body {
 		.footer-name {
 			.heading-style-h1 {
 				transform: translateY(0px);
+			}
+		}
+	}
+
+	/* =============== ABOUT PAGE RESPONSIVE =============== */
+	.about-hero-section {
+		.about-hero-container {
+			padding: 16px;
+			flex-direction: column-reverse;
+			gap: 32px;
+
+			.about-hero-wrapper {
+				width: 100%;
+				gap: 16px;
+				.heading-style-h4:nth-child(2) {
+					opacity: 0.4;
+				}
+			}
+			img {
+				height: 100vw;
+				width: 100%;
+			}
+		}
+	}
+	.about-details-section {
+		padding: 10vw 16px 140px;
+
+		.heading-style-h4 {
+			width: 100%;
+		}
+
+		.tool-box {
+			padding-top: 32px;
+			flex-direction: column;
+			gap: 32px;
+			.tool-box-right {
+				width: 100%;
+
+				gap: 32px;
+
+				.tool-box-right-container {
+					gap: 8px;
+					img {
+						margin: 0 8px;
+						margin-bottom: 4px;
+					}
+				}
+
+				.tool-box-experience {
+					gap: 16px;
+
+					.heading-style-h5 {
+						padding-bottom: 8px;
+					}
+				}
+			}
+		}
+	}
+
+	/* =============== PROJECT PAGE RESPONSIVE =============== */
+	.projects-hero-section {
+		.heading-title {
+			padding: 46px 0;
+			font-size: 21vw;
+		}
+		.project-cards-container {
+			padding: 10vw 16px;
+			flex-direction: column;
+
+			.project-card-link {
+				height: 55vh;
+				width: 100%;
+			}
+		}
+	}
+	/* =============== CONTACT PAGE RESPONSIVE =============== */
+	.contact-hero-section {
+		.heading-title {
+			padding: 46px 0;
+		}
+		.contact-hero-container {
+			padding: 10vw 16px;
+
+			.para-16 {
+				margin-bottom: 20px;
+			}
+			.heading-style-h2 {
+				margin-bottom: -8px;
 			}
 		}
 	}

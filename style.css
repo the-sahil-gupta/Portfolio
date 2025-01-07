@@ -209,7 +209,7 @@ body {
 	justify-content: end;
 	align-items: end;
 
-	display: none;
+	/* display: none; */
 
 	#timer-container {
 		overflow: hidden;
@@ -218,10 +218,16 @@ body {
 		position: relative;
 
 		#timer {
-			font: 400 600px/0.75 var(--reg-font-family);
+			font: 400 39.4vw/0.75 var(--reg-font-family);
 			color: var(--dark-theme-color);
 			letter-spacing: -40px;
 		}
+	}
+}
+@media (max-width: 600px) {
+	#loader #timer-container #timer {
+		font-size: 60vw;
+		letter-spacing: -20px;
 	}
 }
 

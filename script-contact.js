@@ -45,7 +45,6 @@ function menuBar() {
 	const links = menuContainer.querySelectorAll(
 		'.menu-links-wrapper .menu-links'
 	);
-	console.log(links);
 
 	togglebtn.addEventListener('click', () => {
 		const label = togglebtn.querySelector('.para-12');
